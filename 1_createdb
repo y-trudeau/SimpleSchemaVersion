@@ -1,0 +1,26 @@
+#!/bin/bash
+
+. funcs.sh
+
+UP_ALTER="create database test;"
+DOWN_ALTER="drop database test;"
+VERSION=$(echo $(basename $0) | cut -d'_' -f1)
+
+case "$1" in
+  up)
+	up "$UP_ALTER" $VERSION
+	;;
+
+  down)
+	down "$DOWN_ALTER" $VERSION
+	;;
+
+  status)
+	echo "Current version of the schema is: $(getVersion)"
+	;;
+
+  *)
+	log_action_msg "Usage: $0 {up|down|status}" || true
+	exit 1
+esac
+
