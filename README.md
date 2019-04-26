@@ -1,7 +1,8 @@
 A simple tool to help manage schema version
 
-First, create the versions table::
+First, create the versions table:
 
+```
   create database metadata;
   CREATE TABLE `versions` (
     `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -10,3 +11,4 @@ First, create the versions table::
     `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`)
   ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+```
